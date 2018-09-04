@@ -1,7 +1,7 @@
 import os
 from collections import OrderedDict
 books_pages_dict = OrderedDict()
-add_to_bundle = []
+art_bun = []
 
 '''
 1. Add bookname.pdf to bundler folder
@@ -11,13 +11,14 @@ add_to_bundle = []
 
 #Format of books_pages_dict is - books_pages_dict['bookname.pdf'] = [pages] 
 #Format of [pages] is - [pagenumber, [pagerange_firstpage, pagerange_lastpage], pagenumber] - ad infinitum
-#books_pages_dict['Quick.pdf'] = [[41, 55], [201, 219], [234, 246]]
-#books_pages_dict['McRae.pdf'] = [[247, 249], [269, 271], [272, 273], 
-#[275, 282], [284, 288], 290, 294, [296, 299]]
+books_pages_dict['Quick.pdf'] = [[41, 55], [201, 219], [234, 246]]
+books_pages_dict['McRae.pdf'] = [[247, 249], [269, 271], [272, 273], 
+[275, 282], [284, 288], 290, 294, [296, 299]]
 books_pages_dict['Kumar.pdf'] = [0]
 
-add_to_bundle.append('genga2017.pdf')
-add_to_bundle.append('lameire2005.pdf')
+art_bun.append('genga2017.pdf')
+art_bun.append('lameire2005.pdf')
+
 output_folder_dest = None
 folder_index = 1
 
@@ -31,6 +32,7 @@ def set_path():
 while True:
     if not os.path.exists(set_path()):
         os.makedirs(set_path())
+        os.makedirs(os.path.join(set_path(), 'Bundles'))
         output_folder_dest = (set_path())
     else:
         folder_index += 1
